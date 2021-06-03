@@ -37,13 +37,13 @@ RM = rm -f
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
+all : $(NAME_PS) $(NAME_CH)
+
 $(NAME_PS) : $(OBJS_PS) $(OBJS_CM)
 		$(CC) $(CFLAGS) -o $(NAME_PS) $(OBJS_PS) $(OBJS_CM) -I $(INCS)
 
 $(NAME_CH) : $(OBJS_CH) $(OBJS_CM)
 		$(CC) $(CFLAGS) -o $(NAME_CH) $(OBJS_CH) $(OBJS_CM) -I $(INCS)
-
-all : $(NAME_PS) $(NAME_CH)
 
 clean :
 		$(RM) $(OBJS_PS) $(OBJS_CH) $(OBJS_CM)
